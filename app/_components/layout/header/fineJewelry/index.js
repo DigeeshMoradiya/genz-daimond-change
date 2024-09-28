@@ -19,7 +19,7 @@ export default function FineJewelry({ data }) {
             {underline()}
             <div className="flex justify-between sm:flex-row flex-col sm:gap-0 gap-4 md:px-10 mb-14">
                 <div className="flex sm:gap-12 flex-1 gap-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-10">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:grid-cols-3 gap-4 md:gap-10">
                         {data.map((subMenu, subIndex) => (
                             <>
                                 <div key={subIndex}>
