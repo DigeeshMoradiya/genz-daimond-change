@@ -20,8 +20,8 @@ export default function SelectedGallary() {
     const [isLastSlide, setIsLastSlide] = useState(false);
 
     return (
-        <>
-            <div className="py-6 px-4 sm:px-6 lg:px-8 bg-white">
+        <> <div className="bg-white pt-4">
+            <div className="py-6 px-4 sm:px-6 lg:px-8 bg-white ">
                 <Swiper
                     spaceBetween={10}
                     slidesPerView={4}
@@ -61,7 +61,7 @@ export default function SelectedGallary() {
                     }}
                 >
                     {categories?.map((category, index) => (
-                        <SwiperSlide key={index} className="group relative cursor-pointer">
+                        <SwiperSlide key={index} className="group cursor-pointer">
                             <div className="w-full bg-gray-200 overflow-hidden group-hover:opacity-75 relative" data-aos="zoom-in">
                                 <Image
                                     src={category.image}
@@ -81,6 +81,7 @@ export default function SelectedGallary() {
                     ))}
                 </Swiper>
             </div>
+        </div>
         </>
     )
 }

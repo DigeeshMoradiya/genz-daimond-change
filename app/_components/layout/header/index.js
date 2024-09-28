@@ -210,9 +210,9 @@ export default function Header() {
                     }
                     {
                         Boolean(subMenuItems[item.href]) ? (
-                            <div className={`z-[1] fixed left-0 right-0 lg:group-hover:block shadow-lg px-4 transition-all duration-300 ease-in-out bg-white md:bottom-0 md:top-[150px] lg:max-h-[70vh] overflow-y-auto 
-                                ${Boolean(item.href === isMegaMenu) ? 'lg:hidden top-[151px] bottom-0 right-0 left-0 block' : 'hidden'} 
-                               ${isOpen ? 'top-[15px] bottom-[220px]' : 'bottom-0 top-[150px]'}`}>
+                            <div className={`z-[1] fixed left-0 right-0 lg:group-hover:block shadow-lg px-4 transition-all pb-14 duration-300 ease-in-out bg-white md:bottom-0 md:top-[150px] lg:max-h-[70vh] max-h-dvh overflow-y-auto 
+                                ${Boolean(item.href === isMegaMenu) ? 'lg:hidden top-[151px]  right-0 left-0 block' : 'hidden'} 
+                               ${isOpen ? 'top-[15px] sm:bottom-[250px] ' : 'bottom-0 top-[150px]'}`}>
                                 <div className="grid grid-cols-3 items-center sticky top- bg-white py-4 text-sm border-b border-dashed mb-2 lg:hidden">
                                     <button className="lg:hidden flex items-center w-fit" onClick={handleBack}>
                                         <FaAngleLeft className="mr-2" /> Back
