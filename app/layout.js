@@ -12,10 +12,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <AOSInit />
         <Header />
         {children}
         <Footer />
-        <AOSInit />
       </body>
     </html>
   );

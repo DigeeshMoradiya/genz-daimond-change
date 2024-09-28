@@ -67,8 +67,8 @@ export default function SelectedGallary() {
                                     src={category.image}
                                     alt={category.name}
                                     width={400}
-                                    height={400}
-                                    className="w-full h-full object-center object-cover transform transition-transform duration-300 ease-in-out group-hover:scale-110"
+                                    height={300}
+                                    className="w-full h-auto object-center object-cover transform transition-transform duration-300 ease-in-out group-hover:scale-110"
                                 />
                                 {index === 0 && (
                                     <div className="absolute top-0 right-0 p-2">

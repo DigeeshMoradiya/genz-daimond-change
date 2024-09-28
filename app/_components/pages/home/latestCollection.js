@@ -8,7 +8,8 @@ const categories = [
 
 export default function LatestCollection() {
     return (
-        <div className="lg:py-16 pb-12 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="lg:py-16 pb-12 px-4 sm:px-6 lg:px-8 bg-white overflow-auto">
+
             <div data-aos="fade-left" className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                 {categories?.map((item, i) => <div key={i} className={`relative group ${item.image} bg-cover bg-no-repeat bg-center cursor-pointer`}>
                     <div div className="bg-black bg-opacity-0 group-hover:bg-opacity-30 flex items-center opacity-100 transition-opacity duration-300 h-full w-full px-5 py-9 3xl:min-h-96 2xl:min-h-60 1xl:min-h-72 ">
