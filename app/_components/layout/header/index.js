@@ -195,7 +195,8 @@ export default function Header() {
         };
     }, [activeMegaMenu]);
 
-    const navContent = <nav className={`flex lg:flex-row w-full ${setIsOpen ? 'flex-col' : 'hidden'}`}>
+    const navContent = <nav className={`flex lg:flex-row w-full ${setIsOpen ? 'flex-col' : 'hidden'}  ${isOpen ? 'py-12' : ''}`}>
+
         {navItems.map((item, index) => {
             const navClasses = `hover:text-gray-700 ${index === 0 ? 'b' : ''} border-black/15 hover:underline hover:underline-offset-4 hover:decoration-[#BD9851] hover:text-[#BD9851] text-[#212121] lg:py-4 py-2 px-4 sm:text-base text-3xl text-center block sm:capitalize uppercase font-futura-thin font-normal cursor-pointer pb-5`
             return (
@@ -209,7 +210,9 @@ export default function Header() {
                     }
                     {
                         Boolean(subMenuItems[item.href]) ? (
-                            <div className={`z-[1] fixed left-0 right-0 lg:group-hover:block shadow-lg px-4  transition-all duration-300 ease-in-out bg-white lg:max-h-[70vh] overflow-y-auto ${Boolean(item.href === isMegaMenu) ? 'lg:hidden top-[151px]  bottom-0 right-0 left-0 block' : 'hidden'}`} >
+                            <div className={`z-[1] fixed left-0 right-0 lg:group-hover:block shadow-lg px-4 transition-all duration-300 ease-in-out bg-white md:bottom-0 md:top-[150px] lg:max-h-[70vh] overflow-y-auto 
+                                ${Boolean(item.href === isMegaMenu) ? 'lg:hidden top-[151px] bottom-0 right-0 left-0 block' : 'hidden'} 
+                               ${isOpen ? 'top-[15px] bottom-[220px]' : 'bottom-0 top-[150px]'}`}>
                                 <div className="grid grid-cols-3 items-center sticky top- bg-white py-4 text-sm border-b border-dashed mb-2 lg:hidden">
                                     <button className="lg:hidden flex items-center w-fit" onClick={handleBack}>
                                         <FaAngleLeft className="mr-2" /> Back

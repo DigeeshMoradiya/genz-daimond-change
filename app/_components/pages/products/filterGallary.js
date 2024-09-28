@@ -53,7 +53,7 @@ export default function FilterGallery() {
                                 <ProductCard key={i} product={product} />
                             ))}
                         </div>
-                        <div data-aos="fade-left" className="col-span-2 relative flex justify-center pb-2 sm:px-3">
+                        <div data-aos="zoom-in" className="col-span-2 relative flex justify-center pb-2 sm:px-3 overflow-hidden">
                             <Image src="/assets/filterDiamond/10.png" alt="Large Image" width={300} height={300} className="w-full h-auto" />
                             <button className="px-6 py-2 absolute text-nowrap text-white border border-white hover:bg-white hover:text-black  bottom-10">Shop Now</button>
                         </div>

@@ -7,7 +7,7 @@ export default function DiamondFilter() {
 
     return (
         <div className="px-4 pb-4 sm:px-6 lg:px-8 bg-white sticky top-0 z-[10] border-b">
-            <div className="flex flex-col sm:flex-row justify-between items-center px-2 py-2">
+            <div className="flex flex-col  justify-between items-center px-2 py-2">
                 {/* Left Section: Title and Icons */}
                 <div data-aos="fade-right">
                     <h1 className="text-base sm:text-lg font-bold mb-2 sm:mb-4" style={{ fontFamily: 'Futura PT', fontWeight: 400, lineHeight: '24px', textAlign: 'left' }}>Shape</h1>

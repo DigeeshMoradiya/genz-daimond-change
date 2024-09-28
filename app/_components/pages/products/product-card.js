@@ -46,7 +46,7 @@ export default function ProductCard({ product }) {
     };
     return (
         <Link data-aos="zoom-in" href="/product-detail" key={product.id} className="product-diamond">
-            <div className=" overflow-hidden relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <div className="overflow-hidden relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                 {heartIcon()}
                 <Swiper
                     onSwiper={setSwiper}
