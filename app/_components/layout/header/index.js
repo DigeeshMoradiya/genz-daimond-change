@@ -13,7 +13,6 @@ import Ring from "./ring";
 import FineJewelry from "./fineJewelry";
 import Diamond from "./diamond";
 import { FaAngleLeft } from "react-icons/fa6";
-import { useRouter } from "next/router";
 
 const STUD = [
     {
@@ -180,9 +179,6 @@ export default function Header() {
             setCurrentPath(window.location.pathname);
         }
     }, []);
-
-    // const router = window.location.pathname;
-    console.log('router', router)
 
     const handleAllClose = () => {
         setIsMegaMenu(null)
