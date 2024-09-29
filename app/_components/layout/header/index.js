@@ -173,8 +173,15 @@ export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const [isMegaMenu, setIsMegaMenu] = useState(null)
     const [activeMegaMenu, setActiveMegaMenu] = useState(null)
+    const [currentPath, setCurrentPath] = useState('');
 
-    const router = window.location.pathname;
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            setCurrentPath(window.location.pathname);
+        }
+    }, []);
+
+    // const router = window.location.pathname;
     console.log('router', router)
 
     const handleAllClose = () => {
@@ -256,7 +263,7 @@ export default function Header() {
     </nav >
     return (
 
-        <header className={`bg-white text-black sticky  ${isSticky ? 'z-0' : 'z-50'} ${router === "/products" ? 'z-50' : 'z-10'}`}>
+        <header className={`bg-white text-black sticky  ${isSticky ? 'z-0' : 'z-50'} ${currentPath === "/products" ? 'z-50' : 'z-10'}`}>
 
             {/* Overlay when the mobile menu is open */}
             {isOpen ? (
