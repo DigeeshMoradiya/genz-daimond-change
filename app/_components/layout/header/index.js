@@ -195,7 +195,7 @@ export default function Header() {
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 100) {
-                setIsSticky(true);  // Change this condition to match when you want it to be sticky
+                setIsSticky(true);  
             } else {
                 setIsSticky(false);
             }
@@ -211,15 +211,15 @@ export default function Header() {
 
     useEffect(() => {
         if (activeMegaMenu) {
-            document.body.style.overflow = 'hidden'; // Disable scrolling
+            document.body.style.overflow = 'hidden';
         } else {
-            document.body.style.overflow = 'auto'; // Enable scrolling
+            document.body.style.overflow = 'auto'; 
         }
         return () => {
-            document.body.style.overflow = 'auto'; // Clean up on unmount
+            document.body.style.overflow = 'auto'; 
         };
     }, [activeMegaMenu]);
-    const hdfdjf = "product"
+    
 
     const navContent = <nav className={`flex lg:flex-row w-full ${setIsOpen ? 'flex-col' : 'hidden'}  ${isOpen ? 'py-12' : ''}`}>
 
@@ -261,25 +261,24 @@ export default function Header() {
 
         <header className={`bg-white text-black sticky  ${isSticky ? 'z-0' : 'z-50'} ${currentPath === "/products" ? 'z-50' : 'z-10'}`}>
 
-            {/* Overlay when the mobile menu is open */}
+    
             {isOpen ? (
                 <div className="fixed top-0 bottom-0 right-0 left-0 bg-black/30" onClick={() => setIsOpen(false)} />
             ) : null}
 
             <div className="flex lg:flex-col flex-row lg:justify-center justify-between lg:px-0 px-4">
-                {/* Logo Section */}
+    
                 <Link data-aos="fade-down" href="/" className="lg:mx-auto w-fit py-4 cursor-pointer">
                     <Image src="/assets/logo.png" alt="Logo" className="lg:max-w-[80%] md:max-w-[120px] max-w-[100px]" width={184.3} height={70.01} />
                 </Link>
 
-                {/* Main Navigation Section */}
+    
                 <div data-aos="fade-down" className="flex justify-between items-center lg:border-2 border-[#f8f6f4a3]">
                     <div className="flex justify-between items-center max-w-[1760px] mx-auto w-full">
-                        {/* Empty div for layout spacing */}
+    
                         <div className="max-w-[120px] w-full lg:block hidden" />
 
-                        {/* Mobile Menu */}
-                        <div className={`flex-col lg:flex-row lg:flex ${isOpen ? 'fixed top-0 bottom-0 left-0 bg-white max-w-full w-full border flex-col duration-300 transition-transform z-50' : 'hidden'} lg:space-x-4`}>
+                            <div className={`flex-col lg:flex-row lg:flex ${isOpen ? 'fixed top-0 bottom-0 left-0 bg-white max-w-full w-full border flex-col duration-300 transition-transform z-50' : 'hidden'} lg:space-x-4`}>
                             <div className="lg:hidden flex justify-between items-center px-4 mb-10">
                                 <Link href="/" className="lg:mx-auto w-fit py-4 cursor-pointer">
                                     <Image src="/assets/logo.png" alt="Logo" className="lg:max-w-max md:max-w-[120px] max-w-[100px]" width={184.3} height={78.01} />
@@ -291,7 +290,7 @@ export default function Header() {
                             {navContent}
                         </div>
 
-                        {/* Desktop Menu */}
+ 
                         <div data-aos="fade-left" className="flex items-center justify-center space-x-4 lg:max-w-[120px] lg:w-full">
                             <Link href="#" className="hover:text-gray-700"><FiSearch fontSize={24} /></Link>
                             <Link href="/login" className="hover:text-gray-700"><AiOutlineUser fontSize={24} /></Link>

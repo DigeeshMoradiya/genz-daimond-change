@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function InfoSection({ title, buttons }) {
     return (
-        <div className="w-full">
+        <div className="w-full overflow-x-hidden">
             <h2 data-aos="fade-left" className="xl:text-2xl text-xl font-medium mb-4 text-center">{title}</h2>
             <div className="mb-4">
                 {buttons.map((buttonText, index) => (
