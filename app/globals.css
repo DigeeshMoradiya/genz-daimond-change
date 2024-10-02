@@ -258,22 +258,22 @@ img {
   border: 2px solid #b4a377;
 }
 
-.track {
+/* .track {
   position: absolute;
   height: 1px;
   background-color: #b4a377;
   width: 100%;
   top: 50%;
   transform: translateY(-50%);
-}
+} */
 
-.highlight-track {
+/* .highlight-track {
   position: absolute;
   height: 2px;
   background-color: #b4a377;
   top: 50%;
   transform: translateY(-50%);
-}
+} */
 
 .steps {
   position: absolute;

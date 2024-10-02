@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import Button from '../button';
 import OptionSelector from '../product-details-form/option-selector';
+import Slider from 'react-slider';
+import ReactSlider from 'react-slider';
+
 
 // Reusable Slider Component
 const RangeSlider = ({ label, min, max, step, range, sliderType, handleInputChange, stepCount, labels }) => (
@@ -73,6 +76,12 @@ const ProductDetailsComparisonForm = ({
         setRanges({ ...ranges, [sliderType]: newRange });
     };
 
+    const [value, setValue] = useState([1.5, 10]);
+    const [clarity, setClarity] = useState([1, 9]);
+    const [color, setColor] = useState([1, 8]);
+    const [cut, setCut] = useState([1, 5]);
+
+
     return (
         <div className="w-full h-fit lg:sticky static top-0 px-4">
             <OptionSelector
@@ -81,60 +90,180 @@ const ProductDetailsComparisonForm = ({
                 selectedOption={selectedValues.stoneSelection}
                 onSelect={(stoneSelection) => setSelectedValues({ ...selectedValues, stoneSelection })}
             />
-            <div className="w-full -mt-2">
-                <RangeSlider
-                    label="Carat"
-                    min="0"
-                    max="10"
-                    range={ranges.carat}
-                    sliderType="carat"
-                    handleInputChange={handleInputChange}
-                    stepCount={2}
-                    labels={["Min. 1.5ct", "Max. 10.00ct"]}
-                />
-                <RangeSlider
-                    label="Colour"
-                    min="0"
-                    max="6"
-                    range={ranges.colour}
-                    sliderType="colour"
-                    handleInputChange={handleInputChange}
-                    stepCount={7}
-                    labels={["D", "E", "F", "G", "H", "I", "J"]}
-                />
-                <RangeSlider
-                    label="Clarity"
-                    min="0"
-                    max="7"
-                    range={ranges.clarity}
-                    sliderType="clarity"
-                    handleInputChange={handleInputChange}
-                    stepCount={8}
-                    labels={["SI2", "SI1", "VS2", "VS1", "VVS2", "VVS1", "IF", "FL"]}
-                />
-                <RangeSlider
-                    label="Cut"
-                    min="0"
-                    max="3"
-                    range={ranges.cut}
-                    sliderType="cut"
-                    handleInputChange={handleInputChange}
-                    stepCount={4}
-                    labels={["Good", "Very Good", "Excellent", "Ideal"]}
-                />
-                <div className="mt-5">
-                    <OptionSelector
-                        label="Certificate"
-                        options={certificate}
-                        selectedOption={selectedValues.certificate}
-                        onSelect={(certificate) => setSelectedValues({ ...selectedValues, certificate })}
-                        className='flex-1'
-                    />
+            <div className="max-w-lg mx-auto">
+
+
+                <div className="w-full max-w-lg mx-auto my-0 relative">
+                    <div className="w-full max-w-lg mx-auto my-8">
+                        <h2 className="text-[#8F8F8F] font-[450] mb-1">Carat</h2>
+                        <div className="flex justify-between text-sm">
+                            <span className="text-gray-500">Min. {value[0]}ct</span>
+                            <span className="text-gray-500">Max{value[1].toFixed(2)}ct</span>
+                        </div>
+
+                        <Slider
+                            className="w-full h-1 rounded-full"
+                            thumbClassName="w-5 h-5 bg-white border-2 border-[#B4A377] justify-center rounded-full cursor-pointer focus:outline-none shadow-md"
+                            trackClassName="absolute top-[9px] h-[2.5px] bg-[#B4A377] rounded-md"
+                            defaultValue={[1.5, 10]}
+                            min={1.5}
+                            max={10}
+                            step={0.1}
+                            value={value}
+                            onChange={setValue}
+                            ariaLabel={['Min', 'Max']}
+                            ariaValuetext={(state) => `Thumb value ${state.valueNow}`}
+                            minDistance={0}
+                        />
+
+
+                    </div>
                 </div>
-                <div className="mb-4 mt-3">
-                    <label className="block text-[#8E8E93] mb-2"><span className="font-futura-medium underline text-lg text-[#B4A377] font-medium">Advanced Options</span> (Optional)</label>
+
+
+                <div className="w-full max-w-lg mx-auto my-0 relative">
+                    <div className="w-full max-w-lg mx-auto py-4">
+                        <h2 className="text-[#8F8F8F] font-[450] mb-1">Color</h2>
+                        <div className="relative">
+                            <ReactSlider
+                                className="w-full h-2 rounded-full"
+                                thumbClassName="w-5 h-5 bg-[#FFFFFF] border-2 border-[#B4A377] items-center rounded-full focus:outline-none cursor-pointer shadow-md"
+                                trackClassName="absolute top-[9px] h-[2.5px] bg-[#B4A377] rounded-md mx-3"
+                                defaultValue={color}
+                                min={1}
+                                max={8}
+                                step={1}
+                                minDistance={1}
+                                onChange={(value) => setColor(value)}
+                            />
+
+
+                            <div className="absolute w-full top-1.5 grid grid-cols-8 text-center px-2">
+
+                                {Array.from({ length: 8 }, (_, index) => (
+                                    <span
+                                        key={index}
+                                        className="dot w-2 h-2 bg-[#B4A377] rounded-full"
+                                        style={{
+                                            position: 'relative',
+                                            left: `${(index / 7) * 100}%`,
+                                            transform: 'translateX(-50%)',
+                                        }}
+                                    ></span>
+                                ))}
+                            </div>
+
+
+                            <div className="grid grid-cols-7 text-center mt-4 text-gray-500 text-xs">
+                                {["J", "I", "H", "G", "F", "E", "D"].map((label, index) => (
+                                    <span key={index}
+
+                                        style={{
+
+                                        }}>{label}</span>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <Button variant="primary" className="flex-1 block w-full">Close</Button>
+                <div className="w-full max-w-lg mx-auto my-0 relative">
+                    <div className="w-full max-w-lg mx-auto py-4">
+                        <h2 className="text-[#8F8F8F] font-[450] mb-1">Clarity</h2>
+                        <div className="relative">
+                            <ReactSlider
+                                className="w-full h-2 rounded-full"
+                                thumbClassName="w-5 h-5 bg-[#ffff] border-2 border-[#B4A377] items-center rounded-full focus:outline-none cursor-pointer shadow-md"
+                                trackClassName="absolute top-[9px] h-[2px] bg-[#B4A377] rounded-md mx-3"
+                                defaultValue={clarity}
+                                min={1}
+                                max={9}
+                                step={1}
+                                minDistance={1}
+                                onChange={(value) => setClarity(value)}
+
+
+                            />
+                            {/* <div className="absolute w-full top-1.5 grid grid-cols-8 text-center px-2">
+
+                                {["SI2", "SI1", "VS2", "VS1", "VVS2", "VVS1", "IF", "FL"].map((_, index) => (
+                                    <span key={index} className="dot w-2 h-2 bg-[#B4A377] rounded-full"></span>
+                                ))}
+                            </div> */}
+
+                            <div className="absolute w-full top-1.5 grid grid-cols-12 text-center px-2">
+
+                                {Array.from({ length: 9 }, (_, index) => (
+                                    <span
+                                        key={index}
+                                        className="dot w-2 h-2 bg-[#B4A377] rounded-full"
+                                        style={{
+                                            position: 'relative',
+                                            left: `${(index / 2) * 100}%`,
+                                            transform: 'translateX(-50%)',
+                                        }}
+                                    ></span>
+                                ))}
+                            </div>
+
+                            <div className="grid grid-cols-8 text-center mt-4  text-gray-500 text-xs">
+                                {["SI2", "SI1", "VS2", "VS1", "VVS2", "VVS1", "IF", "FL"].map((label, index) => (
+                                    <span key={index}>{label}</span>
+                                ))}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <div className="w-full max-w-lg mx-auto my-0 relative">
+                    <div className="w-full max-w-lg mx-auto py-4">
+                        <h2 className="text-[#8F8F8F] font-[450] mb-1">Color</h2>
+                        <div className="relative">
+                            <ReactSlider
+                                className="w-full h-2 rounded-full"
+                                thumbClassName="w-5 h-5 bg-[#ffff] border-2 border-[#B4A377] items-center rounded-full focus:outline-none cursor-pointer shadow-md"
+                                trackClassName="absolute top-[9px] h-[2px] bg-[#B4A377] rounded-md mx-3"
+                                defaultValue={cut}
+                                min={1}
+                                max={5}
+                                step={1}
+                                minDistance={1}
+                                onChange={(value) => setCut(value)}
+                            />
+
+
+                            <div className="absolute w-full top-1.5 grid grid-cols-8 text-center px-2">
+
+                                {Array.from({ length: 5 }, (_, index) => (
+                                    <span
+                                        key={index}
+                                        className="dot w-2 h-2 bg-[#B4A377] rounded-full"
+                                        style={{
+                                            position: 'relative',
+                                            left: `${(index / 1) * 100}%`,
+                                            transform: 'translateX(-50%)',
+                                        }}
+                                    ></span>
+                                ))}
+                            </div>
+
+
+                            <div className="grid grid-cols-4 text-center mt-4 text-gray-500 text-xs">
+                                {["Good", "Very Good", "Excellent", "Ideal"].map((label, index) => (
+                                    <span key={index}
+
+                                        style={{
+
+                                        }}>{label}</span>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     );

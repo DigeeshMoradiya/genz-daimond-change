@@ -27,7 +27,7 @@ export default function ProductDetailsLayout({ children, images = [], productDet
                     </div>
                 </div>
                 {/* Right Column */}
-                <div data-aos="fade-left" className="w-full bg-[#F2F2F7] p-6 mt-6 lg:mt-0">
+                <div className="w-full bg-[#F2F2F7] p-6 mt-6 lg:mt-0">
                     {
                         SIDE_DATA.map((item, index) => (
                             <InfoSection key={index} title={item.title} buttons={item.buttons} />
