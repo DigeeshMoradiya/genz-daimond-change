@@ -195,7 +195,7 @@ export default function Header() {
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 100) {
-                setIsSticky(true);  
+                setIsSticky(true);
             } else {
                 setIsSticky(false);
             }
@@ -213,20 +213,21 @@ export default function Header() {
         if (activeMegaMenu) {
             document.body.style.overflow = 'hidden';
         } else {
-            document.body.style.overflow = 'auto'; 
+            document.body.style.overflow = 'auto';
         }
         return () => {
-            document.body.style.overflow = 'auto'; 
+            document.body.style.overflow = 'auto';
         };
     }, [activeMegaMenu]);
-    
+
 
     const navContent = <nav className={`flex lg:flex-row w-full ${setIsOpen ? 'flex-col' : 'hidden'}  ${isOpen ? 'py-12' : ''}`}>
 
         {navItems.map((item, index) => {
             const navClasses = `hover:text-gray-700 ${index === 0 ? 'b' : ''} border-black/15 hover:underline hover:underline-offset-4 hover:decoration-[#BD9851] hover:text-[#BD9851] text-[#212121] lg:py-4 py-2 px-4 sm:text-base text-3xl text-center block sm:capitalize uppercase font-futura-thin font-normal cursor-pointer pb-5`
             return (
-                <div key={index} className="group relative" onMouseEnter={() => Boolean(subMenuItems[item.href]) ? setActiveMegaMenu(item.href) : null} onMouseLeave={() => Boolean(subMenuItems[item.href]) ? setActiveMegaMenu(null) : null}>
+                // <div key={index} className="group relative" onMouseEnter={() => Boolean(subMenuItems[item.href]) ? setActiveMegaMenu(item.href) : null} onMouseLeave={() => Boolean(subMenuItems[item.href]) ? setActiveMegaMenu(null) : null}>
+                <div key={index} className="group relative">
                     {
                         Boolean(subMenuItems[item.href]) ? <div key={index} onClick={() => setIsMegaMenu(item.href)} className={navClasses}>
                             {item.label}
@@ -261,24 +262,24 @@ export default function Header() {
 
         <header className={`bg-white text-black sticky  ${isSticky ? 'z-0' : 'z-50'} ${currentPath === "/products" ? 'z-50' : 'z-10'}`}>
 
-    
+
             {isOpen ? (
                 <div className="fixed top-0 bottom-0 right-0 left-0 bg-black/30" onClick={() => setIsOpen(false)} />
             ) : null}
 
             <div className="flex lg:flex-col flex-row lg:justify-center justify-between lg:px-0 px-4">
-    
+
                 <Link data-aos="fade-down" href="/" className="lg:mx-auto w-fit py-4 cursor-pointer">
                     <Image src="/assets/logo.png" alt="Logo" className="lg:max-w-[80%] md:max-w-[120px] max-w-[100px]" width={184.3} height={70.01} />
                 </Link>
 
-    
+
                 <div data-aos="fade-down" className="flex justify-between items-center lg:border-2 border-[#f8f6f4a3]">
                     <div className="flex justify-between items-center max-w-[1760px] mx-auto w-full">
-    
+
                         <div className="max-w-[120px] w-full lg:block hidden" />
 
-                            <div className={`flex-col lg:flex-row lg:flex ${isOpen ? 'fixed top-0 bottom-0 left-0 bg-white max-w-full w-full border flex-col duration-300 transition-transform z-50' : 'hidden'} lg:space-x-4`}>
+                        <div className={`flex-col lg:flex-row lg:flex ${isOpen ? 'fixed top-0 bottom-0 left-0 bg-white max-w-full w-full border flex-col duration-300 transition-transform z-50' : 'hidden'} lg:space-x-4`}>
                             <div className="lg:hidden flex justify-between items-center px-4 mb-10">
                                 <Link href="/" className="lg:mx-auto w-fit py-4 cursor-pointer">
                                     <Image src="/assets/logo.png" alt="Logo" className="lg:max-w-max md:max-w-[120px] max-w-[100px]" width={184.3} height={78.01} />
@@ -290,7 +291,7 @@ export default function Header() {
                             {navContent}
                         </div>
 
- 
+
                         <div data-aos="fade-left" className="flex items-center justify-center space-x-4 lg:max-w-[120px] lg:w-full">
                             <Link href="#" className="hover:text-gray-700"><FiSearch fontSize={24} /></Link>
                             <Link href="/login" className="hover:text-gray-700"><AiOutlineUser fontSize={24} /></Link>
